@@ -1,0 +1,31 @@
+<form  action="" method="POST">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Họ và tên" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="email" class="form-control" name="username" placeholder="Email">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Mật khẩu" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            {{#each errors}}
+            <span style="color: red;">
+              {{this.msg}}
+            </span><br>
+            {{/each}}
+          </div>
+        </div>
+        <div class="col-md-12 text-right">
+          <button type="submit" value="submit" class="btn_3">
+            Đăng ký
+          </button>
+        </div>
+</form>

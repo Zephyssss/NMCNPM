@@ -1,0 +1,24 @@
+
+<form action="" method="POST">
+    <div>
+        <input type="text" class="form-control" id="name" name="username" value=""
+             placeholder="Tài khoản">
+    </div>
+    <div>
+        <input type="password" class="form-control" id="password" name="password" value=""
+            placeholder="Mật khẩu">
+    </div>
+    <div>
+        {{#each errors}}
+            <span style="color: red;">
+                {{this}}
+            </span>
+        {{/each}}
+    </div>
+    <div>
+        <button type="submit" value="submit" class="btn_3">
+            Đăng nhập
+        </button>
+    </div>
+</form>
+<a href="/register">register</a>
