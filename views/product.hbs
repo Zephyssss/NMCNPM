@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Sản Phẩm</h2>
+  <div class="card">
+    <div class="card-header">
+      <table id="product-table-n" class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Mã sản phẩm</th>
+              <th>Tên sản phẩm</th>
+              <th>Hình ảnh</th>
+              <th>Thương hiệu</th>
+              <th>Số lượng</th>
+              <th>Mã nhập</th>
+              <th>Giá bán</th>
+              <th>Thuế</th>
+              <th>Xóa/Sửa</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each list}}
+            <tr>
+              <td>{{this.masp}}</td>
+              <td>{{this.tensp}}</td>
+              <td>
+                  <img src="{{this.hinhanh}}" height="100px" width="100px">
+              </td>
+              <td>{{this.thuonghieu}}</td>
+              <td>{{this.soluong}}</td>
+              <td>{{this.gianhap}} vnđ</td>
+              <td>{{this.giaxuat}} vnđ</td>
+              <td>{{this.thue}}%</td>
+              <td>
+                  <form action="" method="POST">
+                    <input class="form-control" type="hidden" id="id" value="{{this._id}}" name="id">
+                    <div class="glyphicon glyphicon-trash" type='submit'></div>
+                  </form>
+                  <a href="/editproduct?edit={{this._id}}">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                  </a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-10">
+                <p style="color: grey;">* Giá bán chưa bao gồm thuế</p>
+            </div>
+            <div class="col-md-2">
+              <a href="/createproduct">
+                <button type="button" class="btn btn-primary">
+                  Thêm sản phẩm
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>      
+</div>
