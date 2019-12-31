@@ -1,24 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<form action="" method="POST">
-    <div>
-        <input type="text" class="form-control" id="name" name="username" value=""
-             placeholder="Tài khoản">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Login Form</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="register-container">
+                <h2 class="login">Đăng Nhập</h2>
+                <form method="post" action="#">
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Tài khoản:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="UserName" id="username" placeholder="Nhập tên tài khoản" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Mật khẩu:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="PassWord" id="password" placeholder="Nhập mật khẩu" />
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="form-group ">
+                        <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Đăng Nhập</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
-    <div>
-        <input type="password" class="form-control" id="password" name="password" value=""
-            placeholder="Mật khẩu">
-    </div>
-    <div>
-        {{#each errors}}
-            <span style="color: red;">
-                {{this}}
-            </span>
-        {{/each}}
-    </div>
-    <div>
-        <button type="submit" value="submit" class="btn_3">
-            Đăng nhập
-        </button>
-    </div>
-</form>
-<a href="/register">register</a>
+</body>
+
+</html>
