@@ -5,7 +5,12 @@ const db = mongoose.connection;
 const useraccoutschema = new mongoose.Schema({
     name: String,
     username: String,
-    password: String
+    password: String,
+    phone:  String,
+    gender: String,
+    birth: String,
+    worktime: Number, //đơn vị là phút
+    salary: Number //đơn vị Ngàn đồng/giờ
     },
     {
         collection: 'user'

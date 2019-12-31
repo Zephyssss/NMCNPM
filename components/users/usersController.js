@@ -17,6 +17,9 @@ module.exports.loginUser = async (req, res, next) => {
 module.exports.createUser = async (req, res, next) => {
     try{
         await UserService.createUser(res,req.body.name,req.body.username,req.body.password);
+        //chỗ tạo tài khoản phải truyền thêm biến
+        //vi dụ
+        //await UserService.createUser(res,req.body.name,req.body.username,req.body.password,req.body.phone);
     }catch(e){
         next(e);
     }

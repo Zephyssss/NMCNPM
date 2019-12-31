@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const UserModel = require('../../model/users');
 
-module.exports.createUser = (res, name, username, password) => {
+module.exports.createUser = (res, name, username, password,phone) => {
     let errors = [];
     if (!name || !username || !password) {
         errors.push({ msg: 'Please enter all fields' });
@@ -20,6 +20,7 @@ module.exports.createUser = (res, name, username, password) => {
                 res.render('register', { errors });
             } else {
                 let hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+                //dòng dưới để tạo tài khoản, đối số trong{} theo đúng thứ tự trong model
                 const newUser = new UserModel({ name, username, password: hash });
                 res.redirect('/');
                 return newUser.save();
