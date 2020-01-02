@@ -7,7 +7,7 @@ const useraccoutschema = new mongoose.Schema({
     username: String,
     password: String,
     phone:  String,
-    gender: String,
+    gender: Boolean,
     birth: String,
     worktime: Number, //đơn vị là phút
     salary: Number //đơn vị Ngàn đồng/giờ

@@ -23,4 +23,9 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+router.get('/edituser',function(req, res, next) {
+    res.render('editinfor', { title: 'Edit user'});
+  });
+
+router.post('/edituser',userController.editUser)
 module.exports = router;

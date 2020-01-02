@@ -25,3 +25,11 @@ module.exports.createUser = async (req, res, next) => {
     }
     
 };
+
+module.exports.editUser = async (req, res, next) => {
+    try {
+        await UserService.EditUserData(res,req.body._id,req.body.hovaten,req.body.sodth,req.body.sex,req.body.ngaysinh);
+    } catch (error) {
+        next(error);
+    }
+}

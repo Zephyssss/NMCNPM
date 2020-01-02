@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 const UserModel = require('../../model/users');
-
 module.exports.createUser = (res, name, username, password,phone) => {
     let errors = [];
     if (!name || !username || !password) {
@@ -27,5 +26,27 @@ module.exports.createUser = (res, name, username, password,phone) => {
             }
         });
 
+    }
+};
+
+module.exports.EditUserData = (res, id,name,phone, gender,birth) => {
+    let errors = [];
+    console.log(id)
+    console.log(name)
+    console.log(phone)
+    console.log(gender)
+    console.log(birth)
+    if (!name || !phone || !gender||!birth) {
+        errors.push({ msg: 'Please enter all fields' });
+    }
+    if (errors.length > 0) {
+        res.render('editinfor', { errors });
+    } else {
+        var current={_id: id};
+        var newvalues = { $set: {name: name, phone: phone,gender:gender,birth:birth} };
+        UserModel.updateOne(current,newvalues,function(err,res){
+           if(err) throw err;
+        })
+       res.redirect('/login');
     }
 };
