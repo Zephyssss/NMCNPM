@@ -5,7 +5,7 @@ require('../../passport')(passport);
 module.exports.loginUser = async (req, res, next) => {
     try {
         passport.authenticate('local', {
-            successRedirect: '/',
+            successRedirect: '/thanhtoan',
             failureRedirect: '/login',
             failureFlash: true
         })(req, res, next);

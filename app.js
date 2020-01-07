@@ -37,10 +37,19 @@ app.use((req,res,next)=>{
   {
     res.locals.isLoggedIn=true;
     res.locals.user=req.user
+    if(req.user._id=="5df26d5d81f0fd1b9ced09c1")
+      {
+        res.locals.isAdmin=true;
+      }
+      else{
+        res.locals.isAdmin=false;
+      }
   }
   else{
     res.locals.isLoggedIn=false;
   }
+
+  
   next();
 })
 

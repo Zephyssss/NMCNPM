@@ -1,3 +1,4 @@
+{{#if isAdmin}}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,12 +11,55 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/register.css" />
+    {{!-- <link rel="stylesheet" href="/css/register.css" /> --}}
     <title>Document Infomation</title>
   </head>
 
   <body>
-    <div class="container">
+  <div class="container" style="margin-top:60px;">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <form  action="" method="POST">
+      <div class="card">
+        <div class="card-header">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Họ và tên" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="email" class="form-control" name="username" placeholder="Email">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Mật khẩu" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            {{#each errors}}
+            <span style="color: red;">
+              {{this.msg}}
+            </span><br>
+            {{/each}}
+          </div>
+        </div>
+        <div class="col-md-12 text-right">
+          <button type="submit" value="submit" class="btn_3">
+            Đăng ký
+          </button>
+        </div>
+      </form>
+    </div>
+    </div>
+      </div>
+      </div>
+    </div>
+
+    {{!-- <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-8">
           <h2 class="title-form">Tạo tài khoản.</h2>
@@ -168,5 +212,8 @@
         </div>
       </div>
     </div>
-  </body>
+  </body> --}}
 </html>
+{{else}}
+  <h5>Trang chỉ dành cho Admin!!</h5>
+{{/if}}

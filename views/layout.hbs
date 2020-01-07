@@ -21,10 +21,11 @@
 
 <body>
     <!-- Header part start-->
+    {{#if isLoggedIn}}
     <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2" id="main-navbar"> 
         <div class="container">
             <!-- Nav Brand -->
-            <a href="/" class="navbar-brand">Shoes Shop</a>
+            <a href="/thanhtoan" class="navbar-brand">Shoes Shop</a>
             <!-- Button Responsive -->
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -36,65 +37,69 @@
                         <a href="/thanhtoan" class="nav-link {{#if isCheckout}}active{{/if}}">Thanh toán</a>
                     </li>
 
+                    {{#if isAdmin}}
                     <li class="nav-item">
-                        <a href="/thongkedoanhthu" class="nav-link">Thống kê doanh thu</a>
+                        <a href="#" class="nav-link">Thống kê doanh thu</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="/product" class="nav-link {{#if isProduct}} active {{/if}}">Kho</a>
                     </li>
-
-                    {{!-- {{#if user.isGuest }} --}}
-                    {{!-- <li class="nav-item"  >
-                        <a href="/taikhoan" class="nav-link isActive">
-                            <i class="fas fa-user"></i> Tài khoản</a>
-                    </li> --}}
+                    {{/if}}
                     <li class="btn-group" role="group" aria-label="">
-              <div class="btn-group" role="group">
-                <button
-                  id="dropdownId"
-                  type="button"
-                  class="btn btn-secondary dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-user"></i> Tài khoản</a>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                  <a class="dropdown-item" href="#">{{user.name}}</a>
-                  <a class="dropdown-item" href="/edituser">Edit Infor</a>
-                  <a class="dropdown-item" href="/logout">Log out</a>
-                </div>
-              </div>
-            </li>                    
-
-
-                    </li>
-                    {{!-- {{/if}} --}}
+                      <div class="btn-group" role="group">
+                        <button
+                          id="dropdownId"
+                          type="button"
+                          class="btn btn-secondary dropdown-toggle"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false">
+                          <i class="fas fa-user"></i> Tài khoản</a>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                          <a class="dropdown-item" >Tên: {{user.name}}</a>
+                          <a class="dropdown-item" >Giờ làm: {{user.worktime}}</a>
+                          
+                          {{#if isAdmin}}
+                          <a class="dropdown-item" href="#">Quản lí nhân viên</a>
+                          {{/if}}
+                          
+                          <a class="dropdown-item" href="/edituser">Cập nhật thông tin</a>
+                          
+                          {{#if isAdmin}}
+                          <a class="dropdown-item" href="/register">Tạo tài khoản</a>
+                          {{/if}}
+                          <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                        </div>
+                      </div>
+                    </li>                    
                 </ul>
             </div>
         </div>
     </nav>
+    {{/if}}
     <!-- Header part end-->
     <main>
+      {{#if isLoggedIn}}
           {{{body}}}
-  </main>
+      {{else}}
+      <h5>Bạn không có quyền truy cập vào trang này!!!</h5>
+      {{/if}}
+    </main>
     <!--::footer_part end::-->
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
-    integrity="sha256-zUQGihTEkA4nkrgfbbAM1f3pxvnWiznBND+TuJoUv3M=" crossorigin="anonymous"></script>
-  <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
+      integrity="sha256-zUQGihTEkA4nkrgfbbAM1f3pxvnWiznBND+TuJoUv3M=" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
         $('#product-table-n').click(() => {
             if ($(event.target).attr("class") === "glyphicon glyphicon-trash") {
@@ -103,5 +108,4 @@
         })
     </script>
 </body>
-
 </html>

@@ -9,7 +9,7 @@ const useraccoutschema = new mongoose.Schema({
     phone:  String,
     gender: Boolean,
     birth: String,
-    worktime: Number, //đơn vị là phút
+    worktime:{type: Number, default: 0}, //đơn vị là phút
     salary: Number //đơn vị Ngàn đồng/giờ
     },
     {

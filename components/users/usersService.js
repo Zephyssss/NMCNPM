@@ -21,7 +21,7 @@ module.exports.createUser = (res, name, username, password,phone) => {
                 let hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
                 //dòng dưới để tạo tài khoản, đối số trong{} theo đúng thứ tự trong model
                 const newUser = new UserModel({ name, username, password: hash });
-                res.redirect('/');
+                res.redirect('/thanhtoan');
                 return newUser.save();
             }
         });
@@ -47,6 +47,6 @@ module.exports.EditUserData = (res, id,name,phone, gender,birth) => {
         UserModel.updateOne(current,newvalues,function(err,res){
            if(err) throw err;
         })
-       res.redirect('/login');
+       res.redirect('/thanhtoan');
     }
 };

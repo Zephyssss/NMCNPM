@@ -1,3 +1,4 @@
+{{#if isAdmin}}
 <div class="container">
     <h2>Chỉnh sửa sản phẩm</h2>
     <div class="card">
@@ -161,3 +162,6 @@
     };
 </script>  
 </div>
+{{else}}
+  <h5>Trang chỉ dành cho Admin!!</h5>
+{{/if}}
