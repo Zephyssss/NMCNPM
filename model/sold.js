@@ -14,6 +14,7 @@ const soldchema = new mongoose.Schema({
     hinhanh: String,
     thuonghieu: String
     },
+    
     {
         collection: 'sold'
     });

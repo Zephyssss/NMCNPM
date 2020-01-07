@@ -10,15 +10,15 @@ const productschema = new mongoose.Schema({
     soluong: Number,
     gianhap: Number,
     giaxuat: Number,
-    thue: Number
+    thue: Number,
+    khuyenmai: Number
     },
     {
-        collection: 'product'
+        collection: 'bill'
     });
 
-    productschema.index({ tensp:'text', masp:'text', thuonghieu:'text'});
 
-const product = db.useDb("SE").model("product", productschema);
+const product = db.useDb("SE").model("bill", productschema);
 
 
 
