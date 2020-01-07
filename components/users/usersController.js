@@ -33,3 +33,14 @@ module.exports.editUser = async (req, res, next) => {
         next(error);
     }
 }
+
+module.exports.Changepw = async (req, res, next) => {
+    console.log(req.body.password)
+    console.log(req.body.userid)
+    console.log(req.body.newpassword)
+    try {
+        await UserService.Changepw(res,req.body.userid,req.body.password,req.body.newpassword);
+    } catch (error) {
+        next(error);
+    }
+}

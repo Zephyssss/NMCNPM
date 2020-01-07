@@ -8,6 +8,12 @@ router.get('/login', function (req, res, next) {
     res.render('login', { title: 'Login', errors ,layout:false});
 });
 
+router.get('/changepw', function (req, res, next) {
+    const errors = req.flash().error || [];
+    res.render('changepw', { title: 'Change Password', errors});
+});
+router.post('/changepw', userController.Changepw);
+
 router.post('/login', userController.loginUser);
 
 router.get('/register', function (req, res, next) {
