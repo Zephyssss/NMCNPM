@@ -132,9 +132,15 @@ module.exports.removeBill = async (req, res, next) => {
 
 module.exports.checkout = async (req, res, next) => {
     let value;
-    var promo;
+    var promo; 
+    var product;
     try {
         promo = await productService.getMagiamgia();
+    } catch (error) {
+        next(error);
+    }
+    try {
+        product = await productService.getAll();
     } catch (error) {
         next(error);
     }
@@ -148,13 +154,13 @@ module.exports.checkout = async (req, res, next) => {
         next(error);
     }
     //console.log("Key------"+promo.giam);
-    
+  
     if(promo!=null){
         tong = tong - promo.giam*tong/100 + tong*0.1;
-        res.render('checkout', {giam:promo.giam, isBill:true, title:"Thanh toán", bill:value, gia: tong, isCheckout:true});    
+        res.render('checkout', {list:product, giam:promo.giam, isBill:true, title:"Thanh toán", bill:value, gia: tong, isCheckout:true});    
     }
     else{
         tong += tong*0.1;
-        res.render('checkout', {giam:0, isBill:true, title:"Thanh toán", bill:value, gia: tong, isCheckout:true});
+        res.render('checkout', {list:product, giam:0, isBill:true, title:"Thanh toán", bill:value, gia: tong, isCheckout:true});
     }
 }

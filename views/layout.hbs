@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
@@ -21,7 +21,7 @@
 
 <body>
     <!-- Header part start-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2" id="main-navbar" 
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2" id="main-navbar"> 
         <div class="container">
             <!-- Nav Brand -->
             <a href="/" class="navbar-brand">Shoes Shop</a>
@@ -45,10 +45,30 @@
                     </li>
 
                     {{!-- {{#if user.isGuest }} --}}
-                    <li class="nav-item"  >
+                    {{!-- <li class="nav-item"  >
                         <a href="/taikhoan" class="nav-link isActive">
                             <i class="fas fa-user"></i> Tài khoản</a>
-                    </li>
+                    </li> --}}
+                    <li class="btn-group" role="group" aria-label="">
+              <div class="btn-group" role="group">
+                <button
+                  id="dropdownId"
+                  type="button"
+                  class="btn btn-secondary dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i> Tài khoản</a>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                  <a class="dropdown-item" href="#">{{user.name}}</a>
+                  <a class="dropdown-item" href="/edituser">Edit Infor</a>
+                  <a class="dropdown-item" href="/logout">Log out</a>
+                </div>
+              </div>
+            </li>                    
+
 
                     </li>
                     {{!-- {{/if}} --}}
@@ -60,7 +80,6 @@
     <main>
           {{{body}}}
   </main>
-    <h1>Footer</h1>
     <!--::footer_part end::-->
 
 
