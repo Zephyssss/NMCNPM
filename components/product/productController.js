@@ -156,7 +156,8 @@ module.exports.checkout = async (req, res, next) => {
     //console.log("Key------"+promo.giam);
   
     if(promo!=null){
-        tong = tong - promo.giam*tong/100 + tong*0.1;
+        tong = tong - promo.giam*tong/100;
+        tong+=tong*0.1;
         res.render('checkout', {list:product, giam:promo.giam, isBill:true, title:"Thanh toán", bill:value, gia: tong, isCheckout:true});    
     }
     else{

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <table class="table table-bordered">
+          <tbody>
+            {{#each list}}
+            <tr>
+              <td><img src="{{this.hinhanh}}" height="100px" width="100px"></td>
+              <td>
+                <p>{{this.tensp}} </p>
+                <p>Thương hiệu: {{this.thuonghieu}}</p>
+                <p>Giá bán: {{this.giaxuat}} VND</p>
+                <p>Giá nhập: {{this.gianhap}} VND</p>
+              </td>
+              <td>
+                <p>Mã: {{this.masp}}</p>
+                <p>Số lượng: {{this.soluong}}</p>
+                <p>Khuyến mãi: {{this.khuyenmai}}%</p>
+                <p>Ngày bán: {{this.ngayban}}</p>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

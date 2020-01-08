@@ -38,11 +38,21 @@ module.exports.CopyBillToSold = async (res) => {
                 })
             }
             else {
-                console.log("dmmm: "+masp1);
                 const newproduct = new SoldModel({ masp: masp1, tensp: tensp1, hinhanh: hinhanh1, thuonghieu: thuonghieu1, soluong: soluong1, gianhap: gianhap1, giaxuat: giaxuat1, thue: 10, ngayban: date, khuyenmai: giam });
                 newproduct.save();
             }
         });
+        await ProductModel.findOne({masp:bill[i].masp}).then(product=>{
+            if(product){
+                let soluong;
+                soluong = product.soluong - soluong1;
+                var current = { _id: product._id };
+                var newvalues = { $set: { soluong: soluong } };
+                ProductModel.updateOne(current, newvalues, function (err, res) {
+                    if (err) throw err;
+                })
+            }
+        })
     }
 
     var newvalues1 = { $set: { isActive: false } };
@@ -55,5 +65,12 @@ module.exports.CopyBillToSold = async (res) => {
         if (err) throw err;
     });
     
+
     res.redirect('/thanhtoan');
+};
+
+module.exports.getSold = async() =>{
+    const value = await SoldModel.find({});
+    return value;
+    
 };
